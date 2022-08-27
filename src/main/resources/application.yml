@@ -1,5 +1,7 @@
 server:
   port: 8081
+  servlet:
+    context-path: /swagger2
 
 spring:
   datasource:
@@ -13,3 +15,11 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: true
+
+swagger2:
+  enable: true
+
