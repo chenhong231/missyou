@@ -1,5 +1,7 @@
-package com.lin.eshopping.api;
+package com.lin.eshopping.api.v1;
 
+import com.lin.eshopping.exception.http.ForbiddenException;
+import com.lin.eshopping.exception.http.NotFoundException;
 import com.lin.eshopping.model.Banner;
 import com.lin.eshopping.service.BannerService;
 import io.swagger.annotations.Api;
@@ -32,4 +34,9 @@ public class BannerController {
         return bannerService.getByName(name);
     }
 
+    @GetMapping("/test")
+    public String test() {
+        System.out.println("test");
+        throw new ForbiddenException(10001);
+    }
 }
