@@ -3,11 +3,9 @@ package com.lin.eshopping.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -31,4 +29,16 @@ public class Spu extends BaseEntity {
     private String tags;
     private Boolean isTest;
     private String forThemeImg;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name="spuId")
+    private List<Sku> skuList;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name="spuId")
+    private List<SpuImg> spuImgList;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "spuId")
+    private List<SpuDetailImg> spuDetailImgList;
 }
