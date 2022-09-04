@@ -1,7 +1,11 @@
 package com.lin.eshopping.vo;
 
-import java.math.BigDecimal;
+import lombok.Getter;
+import lombok.Setter;
 
+
+@Getter
+@Setter
 public class SpuSimplifyVO {
 
     private Long id;
