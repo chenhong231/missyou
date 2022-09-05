@@ -2,6 +2,7 @@ package com.lin.eshopping.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -13,7 +14,8 @@ import java.util.Objects;
 @Entity
 @Getter
 @Setter
-public class Category {
+@Where(clause = "delete_time is null and online = 1")
+public class Category extends BaseEntity {
 
     @Id
     private Long id;
